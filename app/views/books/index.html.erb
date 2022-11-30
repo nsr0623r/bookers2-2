@@ -1,0 +1,9 @@
+<h1>Books#index</h1>
+<%= render "list", book: @book, user: @user %>
+
+<div>
+  <% @books.each do |book| %>
+    <p>Title:<%= book.title %></p>
+    <p>Opinion:<%= book.body %></p>
+  <% end %>
+</div>

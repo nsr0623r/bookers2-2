@@ -1,0 +1,30 @@
+<h1>books/_list</h1>
+<!--User情報-->
+  <h2>User Info</h2>
+    <%= image_tag user.get_profile_image(100,100) %>
+    <div class="user-info">
+      <p>name:<%= current_user.name %></p>
+    </div>
+  
+    <div class="user-info">
+      <p>introduction:<%= current_user.introduction %></p>
+    </div>
+
+<!--User編集リンク-->
+  <% if user.id == current_user.id %>
+    <p><%= link_to "編集", edit_user_path(user) %></p>
+  <% end %>
+
+<!--新規作成-->
+<h2>New book</h2>
+  <div class="new-book">
+    <%= form_with model: book, url: books_path do |f| %>
+      <p>Title</p>
+      <%= f.text_field :title %>
+
+      <p>Opinion</p>
+      <%= f.text_area :body %>
+
+      <%= f.submit 'Create Book' %>
+    <% end %>
+  </div>
