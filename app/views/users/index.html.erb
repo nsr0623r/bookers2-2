@@ -1,2 +1,20 @@
 <h1>Users#index</h1>
 <%= render "books/list", book: @book, user: @user %>
+
+<!--全員のユーザー情報一覧ヘッダー-->
+<div class="user-content">
+  <h1>Users</h1>
+  <div class="user-head">
+    <p>Image</p>
+    <p>Name</p>
+    <p></p>
+  </div>
+<!--全員のユーザー情報一覧-->
+  <div class="book-list">
+    <% @users.each do |user| %>
+      <p><%= image_tag @user.get_profile_image(100,100) %></p>
+      <p><%= user.name %></p>
+      <p><%= link_to 'Show', user_path(@user) %></p>
+    <% end %>
+  </div>
+</div>

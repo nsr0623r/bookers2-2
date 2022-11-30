@@ -1,2 +1,21 @@
 <h1>Books#show</h1>
 <%= render "list", book: @book, user: @user %>
+
+<div>
+  <!--投稿詳細画面ヘッダー-->
+  <h1>Book detail</h1>
+
+    <!--投稿詳細：投稿ユーザー画像-->
+    <p><%= image_tag @book.user.get_profile_image(100,100) %></p>
+    <!--投稿詳細：投稿ユーザーネーム-->
+    <p><%= @book.user.name %></p>
+    <!--投稿詳細：タイトル-->
+    <p><%= @book.title %></p>
+    <!--投稿詳細：感想-->
+    <p><%= @book.body %></p>
+
+  <% if @book.user == current_user %>
+    <%= link_to "Edit", edit_book_path(@book) %>
+    <%= link_to "Destroy", book_path(@book), method: :delete %>
+  <% end %>
+</div>

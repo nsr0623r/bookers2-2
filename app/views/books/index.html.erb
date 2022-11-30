@@ -1,9 +1,18 @@
 <h1>Books#index</h1>
 <%= render "list", book: @book, user: @user %>
 
-<div>
-  <% @books.each do |book| %>
-    <p>Title:<%= book.title %></p>
-    <p>Opinion:<%= book.body %></p>
-  <% end %>
+<div class="book-content">
+  <div class="book-head">
+    <p></p>
+    <p>Title</p>
+    <p>Opinion</p>
+  </div>
+
+  <div class="book-list">
+    <% @books.each do |book| %>
+      <p><%= image_tag @user.get_profile_image(100,100) %></p>
+      <p><%= link_to book.title, book_path(book.id) %></p>
+      <p><%= book.body %></p>
+    <% end %>
+  </div>
 </div>

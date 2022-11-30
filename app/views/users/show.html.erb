@@ -1,2 +1,23 @@
 <h1>Users#show</h1>
 <%= render "books/list", book: @book, user: @user %>
+
+<div class="book-table">
+  <h2>Books</h2>
+  <div class="book-head">
+    <p></p>
+    <p>Title</p>
+    <p>Opinion</p>
+    <p></p>
+  </div>
+
+  <div class="book-list">
+    <% @books.each do |book| %>
+      <p>
+        <%= image_tag @user.get_profile_image(100,100) %><br>
+        <%= book.user.name %>
+      </p>
+      <p><%= book.title %></p>
+      <p><%= book.body %></p>
+     <% end %>
+  </div>
+</div>
