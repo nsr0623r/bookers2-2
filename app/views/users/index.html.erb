@@ -1,20 +1,32 @@
-<h1>Users#index</h1>
-<%= render "books/list", book: @book, user: @user %>
+<!--<h1>Users#index</h1>-->
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "books/list", book: @book, user: @user %>
+    </div>
 
-<!--全員のユーザー情報一覧ヘッダー-->
-<div class="user-content">
-  <h1>Users</h1>
-  <div class="user-head">
-    <p>Image</p>
-    <p>Name</p>
-    <p></p>
-  </div>
-<!--全員のユーザー情報一覧-->
-  <div class="book-list">
-    <% @users.each do |user| %>
-      <p><%= image_tag @user.get_profile_image(100,100) %></p>
-      <p><%= user.name %></p>
-      <p><%= link_to 'Show', user_path(@user) %></p>
-    <% end %>
+    <div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
+      <table class="table">
+      <!--全員のユーザー情報一覧ヘッダー-->
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+      <!--全員のユーザー情報一覧-->
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= image_tag user.get_profile_image(100,100) %></td>
+            <td><%= user.name %></td>
+            <td><%= link_to 'Show', user_path(user) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

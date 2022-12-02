@@ -1,24 +1,29 @@
-<h1>Users#edit</h1>
+<!--<h1>Users#edit</h1>-->
+
 <!--User情報編集画面-->
 <div class="conteiner">
-  <h2>User info</h2>
-  
-  <div class="edit-content">
-    <%= form_with model: @user do |f| %>
-    <!--ユーザーネーム-->
-    <label for="inputName">Name</label>
-    <%= f.text_field :name, autofocus: true %>
-    
-    <!--ユーザー画像-->
-    <label for="inputImage">Image</label>
-    <%= f.file_field :profile_image, accept: 'image/*' %>
-    
-    <!--ユーザー挨拶文-->
-    <label for="inputIntroduction">Introduction</label>
-    <%= f.text_area :introduction %>
-    
-    <!--編集完了ボタン-->
-    <%= f.submit 'Update User' %>
-  <% end %>
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>User info</h2>
+      <div class="user-info">
+        <%= form_with model: @user do |f| %>
+          <div class="form-group">
+            <label for="inputName">Name</label>
+            <p><%= f.text_field :name, autofocus: true %></p>
+          </div>
+          <div class="form-group">
+            <label for="inputImage">Image</label>
+            <p><%= f.file_field :profile_image, accept: 'image/*' %></p>
+          </div>
+          <div class="form-group">
+            <label for="inputIntroduction">Introduction</label>
+            <p><%= f.text_area :introduction %></p>
+          </div>
+          <div class="form-group">
+            <p><%= f.submit 'Update User', class: "btn btn-secondary" %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
