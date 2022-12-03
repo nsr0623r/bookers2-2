@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  root to: 'homes#top'
-  get 'homes/about', as: 'about'
+  root to: 'home#top'
+  get 'home/about', as: 'about'
   
   resources :books, only: [:index, :create, :show, :edit, :update, :destroy]
   resources :users, only: [:index, :create, :show, :edit, :update]
