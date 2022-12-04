@@ -18,7 +18,7 @@
     </table>
 
   <!--User編集リンク-->
-  <div class="row">
+  <div class="row mt-4">
       <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block", method: :get do %>
         <i class="fas fa-user-cog"></i>
       <% end %>
@@ -26,6 +26,7 @@
 
 
   <!--新規作成-->
+  <div class="row mt-3">
   <h2>New book</h2>
   <div class="new-book">
     <%= form_with model: book, url: books_path, method: :post do |f| %>
@@ -39,4 +40,5 @@
       </div>
         <p><%= f.submit 'Create Book', class: "btn btn-success" %></p>
     <% end %>
+    </div>
   </div>

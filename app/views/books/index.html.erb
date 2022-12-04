@@ -1,5 +1,5 @@
 <!--<h1>Books#index</h1>-->
-<div class="container px-5 px-sm-0">
+<div class="container px-5 px-sm-0 mt-3">
   <% if @book.errors.any? %>
     <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
     <ul>
@@ -19,8 +19,8 @@
       <table class="table table-hover table-inverse">
         <thead>
           <tr>
-            <th></th>
-            <th>Title</th>
+            <th scope="col" style="width: 5%"></th>
+            <th scope="col" style="width: 30%">Title</th>
             <th>Opinion</th>
             <th colspn="3"></th>
           </tr>
